@@ -3,14 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <title>Contact List</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <h1>Contact List</h1>
-    <ul>
-    {% for contact in contacts %}
-        <li>{{ contact.name }} - {{ contact.email }} - {{ contact.phone_number }}</li>
-    {% endfor %}
-    </ul>
-    <a href="{% url 'add_contact' %}">Add Contact</a>
+    <div class="container mt-5">
+        <h1 class="mb-4">Contact List</h1>
+        <ul class="list-group">
+            {% for contact in contacts %}
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                {{ contact.name }}
+                <span class="badge badge-primary badge-pill">{{ contact.phone_number }}</span>
+            </li>
+            {% empty %}
+            <li class="list-group-item">No contacts found.</li>
+            {% endfor %}
+        </ul>
+        <a href="{% url 'add_contact' %}" class="btn btn-primary mt-3">Add Contact</a>
+    </div>
 </body>
 </html>
