@@ -1,3 +1,4 @@
+<!-- contact_list.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,16 +9,39 @@
 <body>
     <div class="container mt-5">
         <h1 class="mb-4">Contact List</h1>
-        <ul class="list-group">
-            {% for contact in contacts %}
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-                {{ contact.name }}
-                <span class="badge badge-primary badge-pill">{{ contact.phone_number }}</span>
-            </li>
-            {% empty %}
-            <li class="list-group-item">No contacts found.</li>
-            {% endfor %}
-        </ul>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone Number</th>
+                    <th>Address</th>
+                    <th>Notes</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for contact in contacts %}
+                <tr>
+                    <td>{{ contact.name }}</td>
+                    <td>{{ contact.email }}</td>
+                    <td>{{ contact.phone_number }}</td>
+                    <td>{{ contact.address }}</td>
+                    <td>{{ contact.notes }}</td>
+                    <td>
+                        <form method="post" action="{% url 'delete_contact' contact.pk %}">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="6">No contacts found.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
         <a href="{% url 'add_contact' %}" class="btn btn-primary mt-3">Add Contact</a>
     </div>
 </body>
