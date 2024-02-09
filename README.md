@@ -43,12 +43,19 @@ Follow these steps to set up the project:
 ## Usage
 Use the application to manage your contacts.
 Access the admin interface at http://127.0.0.1:8000/admin to manage contacts and users (requires superuser credentials).
-Contributing
-Contributions are welcome! Please follow these steps to contribute:
 
-## Fork the repository.
-Create a new branch (git checkout -b feature/my-feature).
-Make your changes.
-Commit your changes (git commit -am 'Add new feature').
-Push to the branch (git push origin feature/my-feature).
-Create a new pull request.
+
+## Contributing
+#### Contributions are welcome! Please follow these steps to contribute:
+
+1. Fork the repository.
+
+2. Create a new branch (git checkout -b feature/my-feature).
+
+3. Make your changes.
+
+4. Commit your changes (git commit -am 'Add new feature').
+
+5. Push to the branch (git push origin feature/my-feature).
+
+6. Create a new pull request.
