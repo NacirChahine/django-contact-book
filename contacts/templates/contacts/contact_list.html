@@ -29,9 +29,9 @@
                     <td>{{ contact.address }}</td>
                     <td>{{ contact.notes }}</td>
                     <td>
-                        <form method="post" action="{% url 'delete_contact' contact.pk %}">
+                        <form id="deleteForm{{ contact.pk }}" method="post" action="{% url 'delete_contact' contact.pk %}">
                             {% csrf_token %}
-                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                            <button type="button" class="btn btn-danger btn-sm" onclick="confirmDelete('{{ contact.name }}', {{ contact.pk }})">Delete</button>
                         </form>
                     </td>
                 </tr>
@@ -44,5 +44,13 @@
         </table>
         <a href="{% url 'add_contact' %}" class="btn btn-primary mt-3">Add Contact</a>
     </div>
+
+    <script>
+        function confirmDelete(name, pk) {
+            if (confirm('Are you sure you want to delete "' + name + '"?')) {
+                document.getElementById('deleteForm' + pk).submit();
+            }
+        }
+    </script>
 </body>
 </html>
