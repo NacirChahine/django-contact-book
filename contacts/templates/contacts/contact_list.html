@@ -17,7 +17,7 @@
                     <th>Phone Number</th>
                     <th>Address</th>
                     <th>Notes</th>
-                    <th></th>
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -29,10 +29,13 @@
                     <td>{{ contact.address }}</td>
                     <td>{{ contact.notes }}</td>
                     <td>
-                        <form id="deleteForm{{ contact.pk }}" method="post" action="{% url 'delete_contact' contact.pk %}">
-                            {% csrf_token %}
-                            <button type="button" class="btn btn-danger btn-sm" onclick="confirmDelete('{{ contact.name }}', {{ contact.pk }})">Delete</button>
-                        </form>
+                        <div class="btn-group" role="group">
+                            <a href="{% url 'edit_contact' contact.pk %}" class="btn btn-primary btn-sm mr-2">Edit</a>
+                            <form id="deleteForm{{ contact.pk }}" method="post" action="{% url 'delete_contact' contact.pk %}">
+                                {% csrf_token %}
+                                <button type="button" class="btn btn-danger btn-sm" onclick="confirmDelete('{{ contact.name }}', {{ contact.pk }})">Delete</button>
+                            </form>
+                        </div>
                     </td>
                 </tr>
                 {% empty %}
