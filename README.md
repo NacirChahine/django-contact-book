@@ -44,6 +44,10 @@ Follow these steps to set up the project:
 Use the application to manage your contacts.
 Access the admin interface at http://127.0.0.1:8000/admin to manage contacts and users (requires superuser credentials).
 
+## Some screenshots
+![image](https://github.com/NacirChahine/django-contact-book/assets/120245923/f8f4b439-2923-4547-995e-e5d7b4f4dcaf)
+
+![image](https://github.com/NacirChahine/django-contact-book/assets/120245923/138d0e35-00b5-4d54-b608-52bed0b81bd1)
 
 ## Contributing
 #### Contributions are welcome! Please follow these steps to contribute:
